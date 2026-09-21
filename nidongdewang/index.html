@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="你懂得网 - 专注成人内容分享与娱乐资讯的在线社区，提供精选图文、视频及互动服务。">
+    <meta name="keywords" content="你懂得网, 成人内容, 娱乐资讯, 网络社区">
+    <title>你懂得网-精选内容分享与互动社区</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-main: #e0e0e0;
+            --text-sub: #a0a0a0;
+            --accent: #ff4081;
+            --accent-hover: #f50057;
+            --border-color: #333;
+            --spacing-unit: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(18, 18, 18, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            color: var(--text-sub);
+            font-weight: 500;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 6px 16px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 400px;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://picsum.photos/seed/nightlife/1200/600') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeIn Up 0.8s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #ccc;
+            margin-bottom: 24px;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px var(--spacing-unit);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            position: relative;
+            padding-left: 12px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 4px;
+            bottom: 4px;
+            width: 4px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+
+        /* Grid System */
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        /* Card Component */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            border-color: #444;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            background-color: #2a2a2a;
+        }
+
+        .card-body {
+            padding: 16px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-tag {
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            margin-bottom: 16px;
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #666;
+            padding-top: 12px;
+            border-top: 1px solid #2a2a2a;
+        }
+
+        /* Sidebar */
+        aside {
+            width: 300px;
+            flex-shrink: 0;
+        }
+
+        .sidebar-widget {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 24px;
+            border: 1px solid var(--border-color);
+        }
+
+        .widget-title {
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #333;
+        }
+
+        .rank-list li {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+            align-items: center;
+        }
+
+        .rank-num {
+            width: 20px;
+            height: 20px;
+            background-color: #333;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .rank-list li:nth-child(1) .rank-num { background-color: #ff4081; }
+        .rank-list li:nth-child(2) .rank-num { background-color: #ff9800; }
+        .rank-list li:nth-child(3) .rank-num { background-color: #ffc107; }
+
+        .rank-info a {
+            font-size: 0.95rem;
+            display: block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .rank-info span {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        /* Tags */
+        .tags-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            padding: 4px 10px;
+            background-color: #2a2a2a;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            transition: all 0.2s;
+        }
+
+        .tag:hover {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a0a0a;
+            padding: 40px var(--spacing-unit);
+            margin-top: 60px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        .footer-col p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+        }
+
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links a {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #222;
+            color: #444;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .grid-4 { grid-template-columns: repeat(2, 1fr); }
+            aside { display: none; } /* Hide sidebar on smaller screens for simplicity */
+            .footer-content { grid-template-columns: 1fr; text-align: center; }
+        }
+
+        @media (max-width: 600px) {
+            .grid-4 { grid-template-columns: 1fr; }
+            .grid-3 { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 1.8rem; }
+            nav ul { display: none; } /* Simplified mobile nav */
+            .header-actions { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-inner">
+        <a href="#" class="logo">
+            你懂得<span>网</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#">热门推荐</a></li>
+                <li><a href="#">图文专区</a></li>
+                <li><a href="#">视频流</a></li>
+                <li><a href="#">社区互动</a></li>
+                <li><a href="#">排行榜</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <button class="btn btn-outline">登录</button>
+            <button class="btn btn-primary">注册</button>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>探索未知的世界</h1>
+            <p>汇聚海量精选内容，提供安全、舒适的网络探索空间。每日更新，满足您的个性化需求。</p>
+            <button class="btn btn-primary" style="padding: 12px 32px; font-size: 1rem;">立即开始浏览</button>
+        </div>
+    </section>
+
+    <div class="container">
+        <div style="display: flex; gap: 24px; flex-wrap: wrap;">
+            <!-- Main Content -->
+            <div class="content-main" style="flex: 1; min-width: 0;">
+                
+                <!-- Category Tabs -->
+                <div style="margin-bottom: 24px; display: flex; gap: 16px; overflow-x: auto; padding-bottom: 4px;">
+                    <a href="#" style="color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 4px;">全部推荐</a>
+                    <a href="#" style="color: var(--text-sub);">精选图文</a>
+                    <a href="#" style="color: var(--text-sub);">热门视频</a>
+                    <a href="#" style="color: var(--text-sub);">深度评测</a>
+                    <a href="#" style="color: var(--text-sub);">社区话题</a>
+                </div>
+
+                <!-- Section 1: Featured -->
+                <section>
+                    <div class="section-header">
+                        <h2 class="section-title">今日精选</h2>
+                        <a href="#" style="color: var(--accent); font-size: 0.9rem;">查看更多 &rarr;</a>
+                    </div>
+                    <div class="grid-4">
+                        <article class="card">
+                            <img src="https://picsum.photos/seed/night1/400/300" alt="Featured" class="card-img">
+                            <div class="card-body">
+                                <span class="card-tag">深度</span>
+                                <h3 class="card-title"><a href="#">探索深夜的宁静与喧嚣</a></h3>
+                                <p class="card-desc">在这个快节奏的时代，我们如何寻找属于自己的片刻安宁？</p>
+                                <div class="card-meta">
+                                    <span>12,403 阅读</span>
+                                    <span>2小时前</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <img src="https://picsum.photos/seed/night2/400/300" alt="Featured" class="card-img">
+                            <div class="card-body">
+                                <span class="card-tag">生活</span>
+                                <h3 class="card-title"><a href="#">城市夜归人的故事</a></h3>
+                                <p class="card-desc">记录那些在灯火阑珊处奔波的身影，每一个都值得被倾听。</p>
+                                <div class="card-meta">
+                                    <span>8,921 阅读</span>
+                                    <span>5小时前</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <img src="https://picsum.photos/seed/night3/400/300" alt="Featured" class="card-img">
+                            <div class="card-body">
+                                <span class="card-tag">文化</span>
+                                <h3 class="card-title"><a href="#">夜色下的独特美学</a></h3>
+                                <p class="card-desc">光影交错间，展现不一样的城市风情与人文景观。</p>
+                                <div class="card-meta">
+                                    <span>15,203 阅读</span>
+                                    <span>1天前</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <img src="https://picsum.photos/seed/night4/400/300" alt="Featured" class="card-img">
+                            <div class="card-body">
+                                <span class="card-tag">资讯</span>
+                                <h3 class="card-title"><a href="#">网络社区的新趋势</a></h3>
+                                <p class="card-desc">了解当下年轻人最热衷的交流方式与内容偏好。</p>
+                                <div class="card-meta">
+                                    <span>6,100 阅读</span>
+                                    <span>2天前</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Section 2: Popular Tags -->
+                <section style="margin-top: 40px;">
+                    <div class="section-header">
+                        <h2 class="section-title">热门标签</h2>
+                    </div>
+                    <div class="tags-cloud">
+                        <a href="#" class="tag">都市情感</a>
+                        <a href="#" class="tag">深夜电台</a>
+                        <a href="#" class="tag">生活技巧</a>
+                        <a href="#" class="tag">心理测试</a>
+                        <a href="#" class="tag">情感咨询</a>
+                        <a href="#" class="tag">热门话题</a>
+                        <a href="#" class="tag">娱乐八卦</a>
+                        <a href="#" class="tag">趣味故事</a>
+                        <a href="#" class="tag">职场吐槽</a>
+                        <a href="#" class="tag">旅行日记</a>
+                    </div>
+                </section>
+
+                <!-- Section 3: Latest Updates -->
+                <section style="margin-top: 40px;">
+                    <div class="section-header">
+                        <h2 class="section-title">最新动态</h2>
+                    </div>
+                    <div class="grid-3">
+                        <article class="card">
+                            <img src="https://picsum.photos/seed/update1/400/250" alt="Update" class="card-img">
+                            <div class="card-body">
+                                <h3 class="card-title"><a href="#">关于用户隐私保护的新规定</a></h3>
+                                <div class="card-meta">
+                                    <span>管理员</span>
+                                    <span>刚刚</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <img src="https://picsum.photos/seed/update2/400/250" alt="Update" class="card-img">
+                            <div class="card-body">
+                                <h3 class="card-title"><a href="#">社区版块即将改版升级</a></h3>
+                                <div class="card-meta">
+                                    <span>管理员</span>
+                                    <span>30分钟前</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <img src="https://picsum.photos/seed/update3/400/250" alt="Update" class="card-img">
+                            <div class="card-body">
+                                <h3 class="card-title"><a href="#">每周话题征集活动开启</a></h3>
+                                <div class="card-meta">
+                                    <span>活动组</span>
+                                    <span>1小时前</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Sidebar -->
+            <aside>
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">排行榜</h3>
+                    <ul class="rank-list">
+                        <li>
+                            <span class="rank-num">1</span>
+                            <div class="rank-info">
+                                <a href="#">如何缓解现代人的焦虑感</a>
+                                <span>24.5w 阅读</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="rank-num">2</span>
+                            <div class="rank-info">
+                                <a href="#">那些年我们错过的爱情</a>
+                                <span>18.2w 阅读</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="rank-num">3</span>
+                            <div class="rank-info">
+                                <a href="#">独居生活的自我管理指南</a>
+                                <span>15.1w 阅读</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="rank-num">4</span>
+                            <div class="rank-info">
+                                <a href="#">深夜食堂：治愈系美食</a>
+                                <span>12.8w 阅读</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="rank-num">5</span>
+                            <div class="rank-info">
+                                <a href="#">职场沟通的艺术与技巧</a>
+                                <span>10.5w 阅读</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">热门分类</h3>
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="#" style="display: flex; justify-content: space-between; color: var(--text-sub);">
+                            <span>情感故事</span>
+                            <span>1.2k</span>
+                        </a>
+                        <a href="#" style="display: flex; justify-content: space-between; color: var(--text-sub);">
+                            <span>两性关系</span>
+                            <span>986</span>
+                        </a>
+                        <a href="#" style="display: flex; justify-content: space-between; color: var(--text-sub);">
+                            <span>搞笑段子</span>
+                            <span>856</span>
+                        </a>
+                        <a href="#" style="display: flex; justify-content: space-between; color: var(--text-sub);">
+                            <span>数码评测</span>
+                            <span>720</span>
+                        </a>
+                        <a href="#" style="display: flex; justify-content: space-between; color: var(--text-sub);">
+                            <span>影视解说</span>
+                            <span>650</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="sidebar-widget" style="background: linear-gradient(45deg, #1e1e1e, #2c2c2c); text-align: center;">
+                    <h3 class="widget-title" style="border:none; color: white;">加入我们</h3>
+                    <p style="color: #aaa; font-size: 0.85rem; margin-bottom: 16px;">注册会员享受更多专属特权</p>
+                    <button class="btn btn-primary" style="width: 100%;">免费注册</button>
+                </div>
+            </aside>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <div class="logo" style="margin-bottom: 16px;">
+                你懂得<span>网</span>
+            </div>
+            <p>致力于提供高品质的网络内容分享平台，致力于打造一个安全、健康、互动性强的网络社区。我们尊重每一位用户的隐私与选择。</p>
+            <p style="color: #444;">Copyright © 2023 你懂得网. All Rights Reserved.</p>
+        </div>
+        <div class="footer-col">
+            <h4>关于我们</h4>
+            <ul class="footer-links">
+                <li><a href="#">网站简介</a></li>
+                <li><a href="#">联系方式</a></li>
+                <li><a href="#">加入团队</a></li>
+                <li><a href="#">广告合作</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>帮助中心</h4>
+            <ul class="footer-links">
+                <li><a href="#">用户协议</a></li>
+                <li><a href="#">隐私政策</a></li>
+                <li><a href="#">常见问题</a></li>
+                <li><a href="#">意见反馈</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+</html>
