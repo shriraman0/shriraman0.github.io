@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="专业MP3下载资源站，提供高清无损音乐、流行歌曲、经典老歌、影视原声及独家专辑的免费下载服务。支持在线试听、格式转换及高速下载。">
+    <meta name="keywords" content="mp3下载,免费mp3下载,音乐下载,无损音乐,在线听歌,mp3转换">
+    <title>MP3下载-高清音乐资源与免费试听平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #e63946;
+            --secondary-color: #1d3557;
+            --accent-color: #457b9d;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #2b2d42;
+            --text-light: #8d99ae;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.05);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            transition: var(--transition);
+            font-size: 15px;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .search-box {
+            display: flex;
+            background: #f1f3f5;
+            border-radius: 20px;
+            padding: 5px 15px;
+            align-items: center;
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            outline: none;
+            padding: 5px;
+            width: 200px;
+            font-size: 14px;
+        }
+
+        .search-box button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .tag:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+        }
+
+        .section-title h2 {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+        }
+
+        .more-link {
+            font-size: 14px;
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .more-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* Music Grid */
+        .music-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 25px;
+        }
+
+        .music-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .music-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .card-content {
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .song-title {
+            font-weight: 700;
+            margin-bottom: 5px;
+            font-size: 1rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .artist-name {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .card-actions {
+            margin-top: auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 8px 0;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: #c92a37;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-main);
+            border: 1px solid #ddd;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-main);
+        }
+
+        /* Download & Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .feature-item {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(230, 57, 70, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .feature-text h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .feature-text p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 50px 20px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: #fff;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                height: auto;
+                padding: 15px;
+                gap: 15px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+
+            .search-box input {
+                width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .music-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .music-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <span>♪</span> 音乐库
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">流行</a></li>
+                    <li><a href="#">经典</a></li>
+                    <li><a href="#">无损</a></li>
+                    <li><a href="#">榜单</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索歌曲、歌手、专辑...">
+                <button>🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>海量 MP3 下载，品质音乐随心听</h1>
+        <p>收录超过 500 万首正版授权音乐，支持在线试听与高速下载，满足您日常听歌与制作需求。</p>
+        <div class="hero-tags">
+            <div class="tag"># 热门单曲</div>
+            <div class="tag"># 高清无损</div>
+            <div class="tag"># 影视原声</div>
+            <div class="tag"># 古风民谣</div>
+            <div class="tag"># 欧美流行</div>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- 热门推荐 -->
+        <section class="section-title">
+            <h2>热门推荐</h2>
+            <a href="#" class="more-link">查看更多 &gt;</a>
+        </section>
+        
+        <div class="music-grid">
+            <article class="music-card">
+                <img src="https://picsum.photos/seed/music1/300/300" alt="专辑封面" class="card-img">
+                <div class="card-content">
+                    <h3 class="song-title">海阔天空 (Live版)</h3>
+                    <p class="artist-name">Beyond</p>
+                    <div class="card-actions">
+                        <button class="btn btn-primary" onclick="playDemo(this)">▶ 试听</button>
+                        <button class="btn btn-outline">⬇ 下载</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="music-card">
+                <img src="https://picsum.photos/seed/music2/300/300" alt="专辑封面" class="card-img">
+                <div class="card-content">
+                    <h3 class="song-title">七里香</h3>
+                    <p class="artist-name">周杰伦</p>
+                    <div class="card-actions">
+                        <button class="btn btn-primary" onclick="playDemo(this)">▶ 试听</button>
+                        <button class="btn btn-outline">⬇ 下载</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="music-card">
+                <img src="https://picsum.photos/seed/music3/300/300" alt="专辑封面" class="card-img">
+                <div class="card-content">
+                    <h3 class="song-title">演员</h3>
+                    <p class="artist-name">薛之谦</p>
+                    <div class="card-actions">
+                        <button class="btn btn-primary" onclick="playDemo(this)">▶ 试听</button>
+                        <button class="btn btn-outline">⬇ 下载</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="music-card">
+                <img src="https://picsum.photos/seed/music4/300/300" alt="专辑封面" class="card-img">
+                <div class="card-content">
+                    <h3 class="song-title">孤勇者</h3>
+                    <p class="artist-name">陈奕迅</p>
+                    <div class="card-actions">
+                        <button class="btn btn-primary" onclick="playDemo(this)">▶ 试听</button>
+                        <button class="btn btn-outline">⬇ 下载</button>
+                    </div>
+                </div>
+            </article>
+            
+            <article class="music-card">
+                <img src="https://picsum.photos/seed/music5/300/300" alt="专辑封面" class="card-img">
+                <div class="card-content">
+                    <h3 class="song-title">晴天</h3>
+                    <p class="artist-name">周杰伦</p>
+                    <div class="card-actions">
+                        <button class="btn btn-primary" onclick="playDemo(this)">▶ 试听</button>
+                        <button class="btn btn-outline">⬇ 下载</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="music-card">
+                <img src="https://picsum.photos/seed/music6/300/300" alt="专辑封面" class="card-img">
+                <div class="card-content">
+                    <h3 class="song-title">十年</h3>
+                    <p class="artist-name">陈奕迅</p>
+                    <div class="card-actions">
+                        <button class="btn btn-primary" onclick="playDemo(this)">▶ 试听</button>
+                        <button class="btn btn-outline">⬇ 下载</button>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <!-- 服务优势 -->
+        <section class="features-grid" style="margin-top: 80px;">
+            <div class="feature-item">
+                <div class="feature-icon">⚡</div>
+                <div class="feature-text">
+                    <h3>高速下载</h3>
+                    <p>多线路服务器节点，支持断点续传，为您提供稳定、快速的 MP3 下载体验。</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🎵</div>
+                <div class="feature-text">
+                    <h3>高清音质</h3>
+                    <p>提供 320kbps 高码率 MP3 及 FLAC 无损格式，还原录音室级音质。</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🔄</div>
+                <div class="feature-text">
+                    <h3>格式转换</h3>
+                    <p>内置音频格式转换工具，一键将 MP3 转换为 AAC、WAV 等其他格式。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 分类导航 -->
+        <section class="section-title">
+            <h2>按风格浏览</h2>
+        </section>
+        <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 40px;">
+            <a href="#" class="tag" style="font-size: 16px; padding: 10px 20px;">华语流行</a>
+            <a href="#" class="tag" style="font-size: 16px; padding: 10px 20px;">欧美金曲</a>
+            <a href="#" class="tag" style="font-size: 16px; padding: 10px 20px;">日韩偶像</a>
+            <a href="#" class="tag" style="font-size: 16px; padding: 10px 20px;">网络热歌</a>
+            <a href="#" class="tag" style="font-size: 16px; padding: 10px 20px;">古典音乐</a>
+            <a href="#" class="tag" style="font-size: 16px; padding: 10px 20px;">轻音乐</a>
+            <a href="#" class="tag" style="font-size: 16px; padding: 10px 20px;">DJ舞曲</a>
+            <a href="#" class="tag" style="font-size: 16px; padding: 10px 20px;">影视原声</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于我们</h4>
+                <ul>
+                    <li><a href="#">网站介绍</a></li>
+                    <li><a href="#">版权声明</a></li>
+                    <li><a href="#">联系方式</a></li>
+                    <li><a href="#">加入我们</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>帮助中心</h4>
+                <ul>
+                    <li><a href="#">下载指南</a></li>
+                    <li><a href="#">格式转换教程</a></li>
+                    <li><a href="#">常见问题</a></li>
+                    <li><a href="#">反馈建议</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>热门分类</h4>
+                <ul>
+                    <li><a href="#">最新上架</a></li>
+                    <li><a href="#">本周榜单</a></li>
+                    <li><a href="#">怀旧金曲</a></li>
+                    <li><a href="#">动漫OST</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关注我们</h4>
+                <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 10px;">
+                    扫码关注公众号获取最新歌单推荐
+                </p>
+                <div style="width: 100px; height: 100px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center;">
+                    QR Code
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 音乐库 MP3下载平台 版权所有 | 本站资源仅供个人学习交流使用，请于下载后24小时内删除。</p>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的交互脚本：模拟试听按钮点击反馈
+        function playDemo(btn) {
+            const originalText = btn.innerText;
+            const card = btn.closest('.music-card');
+            const title = card.querySelector('.song-title').innerText;
+            
+            btn.innerText = '⏸ 播放中...';
+            btn.style.backgroundColor = '#1d3557';
+            btn.style.color = '#fff';
+            
+            // 模拟播放状态
+            setTimeout(() => {
+                btn.innerText = '▶ 试听';
+                btn.style.backgroundColor = '';
+                btn.style.color = '';
+                // 在这里可以添加实际的音频播放逻辑
+            }, 3000);
+        }
+    </script>
+</body>
+          </html>
