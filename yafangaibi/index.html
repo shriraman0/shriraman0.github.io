@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雅芳艾碧网-专业皮肤管理与美容护肤平台</title>
+    <meta name="description" content="雅芳艾碧网提供专业的皮肤管理方案、美容护肤知识及美容仪器评测。包含水光针、热玛吉、小气泡等热门美容项目的详细介绍与护理建议。">
+    <meta name="keywords" content="雅芳艾碧网,皮肤管理,美容护肤,水光针,热玛吉,小气泡,美容仪器,皮肤检测">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #d63384;
+            --primary-hover: #b02a6c;
+            --secondary-color: #f8f9fa;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-color: #e9ecef;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --radius: 8px;
+            --container-width: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: #fff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -24px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: var(--radius);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: #fff;
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            border-color: var(--primary-hover);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, #fdf2f8 0%, #fff 100%);
+            padding: 80px 0;
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 42px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            width: 100%;
+        }
+
+        .tag-pill {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(214, 51, 132, 0.1);
+            color: var(--primary-color);
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        /* Features */
+        .features {
+            padding: 60px 0;
+            background: #fff;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--secondary-color);
+            padding: 30px;
+            border-radius: var(--radius);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* Service Categories */
+        .services {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .service-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 10px 24px;
+            border-radius: 30px;
+            border: 1px solid var(--border-color);
+            background: #fff;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--primary-color);
+            color: #fff;
+            border-color: var(--primary-color);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .service-item {
+            background: #fff;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            position: relative;
+            group: 'services';
+        }
+
+        .service-item:hover {
+            box-shadow: var(--shadow);
+        }
+
+        .service-img {
+            height: 180px;
+            width: 100%;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .service-info {
+            padding: 20px;
+        }
+
+        .service-info h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .service-info p {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .service-link {
+            font-size: 14px;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Info Section */
+        .info-section {
+            padding: 80px 0;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .info-card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .info-card h3 {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 20px;
+        }
+
+        .info-list li {
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+            color: var(--text-light);
+            font-size: 15px;
+        }
+
+        .info-list li::before {
+            content: '•';
+            color: var(--primary-color);
+            font-size: 20px;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 8px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-answer {
+            color: var(--text-light);
+            font-size: 14px;
+            padding-left: 10px;
+            border-left: 2px solid var(--primary-color);
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #ccc;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h4 {
+            color: #fff;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            max-width: 300px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col h5 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-content p {
+                margin: 0 auto 30px;
+            }
+            .service-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+            .header-actions {
+                display: none;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-content h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                </svg>
+                <span>雅芳艾碧网</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">皮肤管理</a></li>
+                    <li><a href="#">美容仪器</a></li>
+                    <li><a href="#">护肤百科</a></li>
+                    <li><a href="#">品牌入驻</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn btn-outline">登录</a>
+                <a href="#" class="btn btn-primary">免费咨询</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <span class="tag-pill">专业皮肤管理平台</span>
+                    <h1>探索科学护肤，遇见更自信的自己</h1>
+                    <p>雅芳艾碧网致力于提供权威的皮肤管理知识、前沿的美容仪器评测及个性化的护肤方案，助您精准解决各类肌肤困扰。</p>
+                    <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: flex-start;">
+                        <a href="#" class="btn btn-primary">开始测评</a>
+                        <a href="#" class="btn btn-outline">查看热门项目</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://picsum.photos/seed/skincare1/600/400" alt="专业皮肤管理场景" width="600" height="400">
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>我们为什么选择雅芳艾碧网</h2>
+                    <p>全方位的皮肤健康解决方案</p>
+                </div>
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <div class="feature-icon">🔬</div>
+                        <h3>科学皮肤检测</h3>
+                        <p>提供多维度皮肤数据报告，精准分析肤质、水分及色素沉着情况，为护肤提供数据支持。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">💡</div>
+                        <h3>定制化方案</h3>
+                        <p>根据检测结果和用户生活习惯，生成专属护肤计划，避免盲目跟风，提高护肤效率。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>正品保障</h3>
+                        <p>严选国际一线美容仪器与护肤品牌，确保每一款产品都经过严格的质量检测与认证。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Categories -->
+        <section class="services">
+            <div class="container">
+                <div class="section-title">
+                    <h2>热门皮肤管理项目</h2>
+                    <p>针对不同肌肤问题的专业护理方案</p>
+                </div>
+                
+                <div class="service-tabs">
+                    <button class="tab-btn active">全部</button>
+                    <button class="tab-btn">水光补水</button>
+                    <button class="tab-btn">抗衰紧致</button>
+                    <button class="tab-btn">祛痘消炎</button>
+                    <button class="tab-btn">美白淡斑</button>
+                    <button class="tab-btn">敏感修复</button>
+                </div>
+
+                <div class="service-grid">
+                    <article class="service-item">
+                        <img src="https://picsum.photos/seed/water/400/300" alt="水光针管理" class="service-img">
+                        <div class="service-info">
+                            <h3>深层水光管理</h3>
+                            <p>利用微针技术将透明质酸定点导入真皮层，快速补充肌肤水分，改善干燥粗糙，使肌肤水润透亮。</p>
+                            <a href="#" class="service-link">查看详情 &rarr;</a>
+                        </div>
+                    </article>
+                    <article class="service-item">
+                        <img src="https://picsum.photos/seed/anti/400/300" alt="热玛吉射频" class="service-img">
+                        <div class="service-info">
+                            <h3>热玛吉射频抗衰</h3>
+                            <p>单极射频技术刺激胶原蛋白再生，紧致面部轮廓，淡化细纹，提升肌肤弹性，适合熟龄肌。</p>
+                            <a href="#" class="service-link">查看详情 &rarr;</a>
+                        </div>
+                    </article>
+                    <article class="service-item">
+                        <img src="https://picsum.photos/seed/peel/400/300" alt="果酸焕肤" class="service-img">
+                        <div class="service-info">
+                            <h3>果酸焕肤 (AHA)</h3>
+                            <p>去除老化角质，疏通毛孔，改善闭口粉刺，提亮肤色，让肌肤恢复光滑细腻的质感。</p>
+                            <a href="#" class="service-link">查看详情 &rarr;</a>
+                        </div>
+                    </article>
+                    <article class="service-item">
+                        <img src="https://picsum.photos/seed/clean/400/300" alt="小气泡清洁" class="service-img">
+                        <div class="service-info">
+                            <h3>深层小气泡清洁</h3>
+                            <p>负压吸力配合活性气泡，深入毛孔带走油脂与污垢，配合导入营养液，清爽不紧绷。</p>
+                            <a href="#" class="service-link">查看详情 &rarr;</a>
+                        </div>
+                    </article>
+                    <article class="service-item">
+                        <img src="https://picsum.photos/seed/laser/400/300" alt="激光祛斑" class="service-img">
+                        <div class="service-info">
+                            <h3>激光祛斑嫩肤</h3>
+                            <p>针对性击碎黑色素颗粒，有效改善黄褐斑、晒斑等色素沉着问题，还原肌肤白皙底色。</p>
+                            <a href="#" class="service-link">查看详情 &rarr;</a>
+                        </div>
+                    </article>
+                    <article class="service-item">
+                        <img src="https://picsum.photos/seed/hydro/400/300" alt="水动力导出" class="service-img">
+                        <div class="service-info">
+                            <h3>水动力导出护理</h3>
+                            <p>通过高频振动将深层污垢吸出，同时注入营养精华，有效改善黑头、毛孔粗大及暗沉。</p>
+                            <a href="#" class="service-link">查看详情 &rarr;</a>
+                        </div>
+                    </article>
+                    <article class="service-item">
+                        <img src="https://picsum.photos/seed/ultra/400/300" alt="超声炮" class="service-img">
+                        <div class="service-info">
+                            <h3>超声炮抗衰</h3>
+                            <p>利用聚焦超声能量作用于筋膜层，实现面部提拉紧致，改善下颌线模糊及面部松弛。</p>
+                            <a href="#" class="service-link">查看详情 &rarr;</a>
+                        </div>
+                    </article>
+                    <article class="service-item">
+                        <img src="https://picsum.photos/seed/restore/400/300" alt="舒敏之星" class="service-img">
+                        <div class="service-info">
+                            <h3>舒敏之星修复</h3>
+                            <p>通过特定波段光能舒缓炎症，修复受损的皮肤屏障，适合敏感肌、泛红肌肤及换季不适。</p>
+                            <a href="#" class="service-link">查看详情 &rarr;</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Info & FAQ -->
+        <section class="info-section">
+            <div class="container info-grid">
+                <div class="info-content">
+                    <div class="info-card">
+                        <h3>护肤小知识</h3>
+                        <ul class="info-list">
+                            <li><strong>防晒的重要性：</strong>紫外线是皮肤老化的头号元凶，无论阴晴雨雪，都需要做好物理或化学防晒。</li>
+                            <li><strong>精简护肤原则：</strong>根据肤质选择基础款产品（洁面、水、乳、防晒），避免过度叠加导致营养过剩。</li>
+                            <li><strong>屏障受损表现：</strong>泛红、刺痛、干燥起皮、紧绷感，一旦出现需立即停用刺激性产品，进行修护。</li>
+                            <li><strong>抗糖化护肤：</strong>减少高糖食物摄入，使用含有抗糖成分（如肌肽）的护肤品，延缓胶原蛋白糖化变黄。</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>常见问题 (FAQ)</h3>
+                        <div class="faq-item">
+                            <div class="faq-question">皮肤管理项目多久做一次？ <span>+</span></div>
+                            <div class="faq-answer">一般来说，水光、小气泡等项目建议每周1次，连续4-6次为一个疗程；热玛吉、超声炮等射频类仪器建议每年1-2次。</div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">敏感肌可以做刷酸吗？ <span>+</span></div>
+                            <div class="faq-answer">敏感肌需谨慎尝试刷酸。建议先进行皮肤检测，选择低浓度、温和的酸类产品，并严格控制使用频率，同时加强保湿修护。</div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">做完水光针会留疤吗？ <span>+</span></div>
+                            <div class="faq-answer">正规操作下，使用无菌针头和规范的微针技术，留疤风险极低。术后注意避光和防晒，避免感染即可。</div>
+                        </div>
+                    </div>
+                </div>
+                <aside class="info-sidebar">
+                    <div class="info-card" style="margin-bottom: 30px; background: linear-gradient(135deg, #d63384, #a61e4e); color: #fff; border: none;">
+                        <h3 style="color: #fff; border-bottom-color: rgba(255,255,255,0.3);">预约专家咨询</h3>
+                        <p style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 20px;">获取您的专属皮肤分析报告</p>
+                        <a href="#" class="btn" style="background: #fff; color: var(--primary-color); width: 100%; text-align: center;">立即预约</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>热门仪器推荐</h3>
+                        <ul class="info-list">
+                            <li><a href="#">半岛超声炮</a></li>
+                            <li><a href="#">飞顿热玛吉</a></li>
+                            <li><a href="#">科医人超光子</a></li>
+                            <li><a href="#">艾尔建乔雅登</a></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h4>雅芳艾碧网</h4>
+                    <p>专注皮肤管理与美容科普，致力于为爱美人士提供科学、专业、安全的变美指南。我们连接正规机构与优质产品，守护您的肌肤健康。</p>
+                    <div style="display: flex; gap: 10px;">
+                        <!-- Social placeholders -->
+                        <span style="background: #333; padding: 5px 10px; border-radius: 4px; font-size: 12px;">关注我们</span>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h5>关于我们</h5>
+                    <ul>
+                        <li><a href="#">网站简介</a></li>
+                        <li><a href="#">合作机构</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">联系方式</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>服务项目</h5>
+                    <ul>
+                        <li><a href="#">水光补水</a></li>
+                        <li><a href="#">抗衰紧致</a></li>
+                        <li><a href="#">祛痘祛斑</a></li>
+                        <li><a href="#">皮肤检测</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>帮助中心</h5>
+                    <ul>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">用户协议</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 雅芳艾碧网 版权所有. 本网站内容仅供科普参考，具体治疗请咨询专业医生。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle Logic
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+                const span = item.querySelector('span');
+                span.textContent = parent.classList.contains('active') ? '-' : '+';
+            });
+        });
+
+        // Tab Logic (Visual only for this demo)
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+  </html>
