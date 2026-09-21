@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aiaiwang-人工智能探索与未来科技资讯平台</title>
+    <meta name="description" content="aiaiwang致力于提供最新的人工智能资讯、技术趋势分析、AI应用案例及行业深度报告，是探索人工智能未来的权威平台。">
+    <meta name="keywords" content="aiaiwang,人工智能,深度学习,机器学习,AI资讯,科技前沿">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary-color: #0f172a;
+            --accent-color: #06b6d4;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-secondary: #64748b;
+            --border-radius: 8px;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --container-width: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background: var(--bg-color);
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .search-bar input {
+            border: none;
+            background: transparent;
+            outline: none;
+            font-size: 0.9rem;
+            width: 150px;
+        }
+
+        .search-bar button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #1e293b 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            backdrop-filter: blur(4px);
+        }
+
+        /* Main Layout */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-top: -40px;
+            margin-bottom: 60px;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 50px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            bottom: 5px;
+            width: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* Article Cards */
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #f1f5f9;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-img {
+            height: 180px;
+            background-color: #cbd5e1;
+            position: relative;
+        }
+        
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .card-body {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-meta {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .card-excerpt {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .card-footer {
+            border-top: 1px solid #f1f5f9;
+            padding-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .author {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .author-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: #e2e8f0;
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 30px;
+            border: 1px solid #f1f5f9;
+        }
+
+        .widget-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .rank-list {
+            counter-reset: rank;
+        }
+
+        .rank-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            gap: 15px;
+        }
+
+        .rank-item::before {
+            counter-increment: rank;
+            content: counter(rank);
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #cbd5e1;
+            min-width: 20px;
+            line-height: 1;
+        }
+
+        .rank-item:hover::before {
+            color: var(--primary-color);
+        }
+
+        .rank-link {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-main);
+            line-height: 1.5;
+        }
+
+        .rank-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* Feature Section */
+        .feature-section {
+            background-color: #f1f5f9;
+            padding: 60px 0;
+            margin-top: 60px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.25rem;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: #94a3b8;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h2 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .header-inner {
+                padding: 0 10px;
+            }
+            nav {
+                display: none; /* Simplified mobile handling */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary-color)"><path d="M12 2a10 10 0 1 0 10 10H12V2z"></path><path d="M12 2a10 10 0 0 1 10 10"></path><path d="M12 12 2.1 12.1"></path></svg>
+                aiaiwang<span>AI</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">行业资讯</a></li>
+                    <li><a href="#">深度报告</a></li>
+                    <li><a href="#">技术教程</a></li>
+                    <li><a href="#">AI工具库</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="search-bar">
+                    <input type="text" placeholder="搜索AI技术...">
+                    <button>🔍</button>
+                </div>
+                <a href="#" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.9rem;">订阅周刊</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-tags">
+                    <span class="tag">大语言模型</span>
+                    <span class="tag">计算机视觉</span>
+                    <span class="tag">生成式AI</span>
+                    <span class="tag">自动驾驶</span>
+                </div>
+                <h1>探索人工智能的无限边界</h1>
+                <p>aiaiwang为您提供全球前沿的AI技术解读、行业趋势分析以及实用的AI工具应用指南，助您把握智能时代的脉搏。</p>
+                <div style="display: flex; gap: 15px; justify-content: center;">
+                    <a href="#" class="btn btn-primary">阅读最新文章</a>
+                    <a href="#" class="btn btn-outline" style="border-color: rgba(255,255,255,0.3); color: white;">浏览AI工具</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="container main-layout">
+            <!-- Left Content: Articles -->
+            <div class="content-area">
+                
+                <!-- Featured Article -->
+                <section>
+                    <div class="section-header">
+                        <h2 class="section-title">深度观察</h2>
+                        <a href="#" style="font-size: 0.9rem; color: var(--primary-color);">查看全部 &rarr;</a>
+                    </div>
+                    <article class="card" style="flex-direction: row; height: 280px; margin-bottom: 20px;">
+                        <div class="card-img" style="width: 40%; height: 100%;">
+                            <img src="https://picsum.photos/seed/ai_tech/600/400" alt="AI Technology Visualization">
+                            <span class="card-badge">独家</span>
+                        </div>
+                        <div class="card-body" style="padding: 30px;">
+                            <div class="card-meta">
+                                <span>2023年10月24日</span>
+                                <span>深度学习</span>
+                            </div>
+                            <h3 class="card-title"><a href="#">生成式AI的下一波浪潮：从文本到多模态交互的进化之路</a></h3>
+                            <p class="card-excerpt">随着多模态大模型的兴起，AI不再局限于处理单一数据类型。本文深入探讨了GPT-4V等模型如何重塑人机交互体验，以及未来可能带来的应用场景变革。</p>
+                        </div>
+                    </article>
+                </section>
+
+                <!-- Article List -->
+                <section>
+                    <div class="section-header">
+                        <h2 class="section-title">热门资讯</h2>
+                    </div>
+                    <div class="article-grid">
+                        <article class="card">
+                            <div class="card-img">
+                                <img src="https://picsum.photos/seed/robotics/400/250" alt="Robotics">
+                            </div>
+                            <div class="card-body">
+                                <div class="card-meta">
+                                    <span>科技动态</span>
+                                    <span>3分钟阅读</span>
+                                </div>
+                                <h3 class="card-title"><a href="#">人形机器人在制造业的应用前景分析</a></h3>
+                                <p class="card-excerpt">随着灵巧手技术的突破，人形机器人正逐步进入工厂流水线，探讨其对劳动力市场的潜在影响。</p>
+                                <div class="card-footer">
+                                    <div class="author">
+                                        <div class="author-avatar"></div>
+                                        <span>科技前沿</span>
+                                    </div>
+                                    <span>🔥 1.2k</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="card">
+                            <div class="card-img">
+                                <img src="https://picsum.photos/seed/neural/400/250" alt="Neural Network">
+                            </div>
+                            <div class="card-body">
+                                <div class="card-meta">
+                                    <span>技术解析</span>
+                                    <span>5分钟阅读</span>
+                                </div>
+                                <h3 class="card-title"><a href="#">Transformer架构原理与最新变体解析</a></h3>
+                                <p class="card-excerpt">一文读懂注意力机制如何改变深度学习，以及MHA、GQA等变体在提升推理效率方面的贡献。</p>
+                                <div class="card-footer">
+                                    <div class="author">
+                                        <div class="author-avatar"></div>
+                                        <span>算法实验室</span>
+                                    </div>
+                                    <span>🔥 856</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="card">
+                            <div class="card-img">
+                                <img src="https://picsum.photos/seed/medical/400/250" alt="Medical AI">
+                            </div>
+                            <div class="card-body">
+                                <div class="card-meta">
+                                    <span>医疗健康</span>
+                                    <span>6分钟阅读</span>
+                                </div>
+                                <h3 class="card-title"><a href="#">AI辅助诊断：精准医疗的新引擎</a></h3>
+                                <p class="card-excerpt">深度学习在医学影像识别中的表现已超越人类专家，探讨其在早期癌症筛查中的应用现状。</p>
+                                <div class="card-footer">
+                                    <div class="author">
+                                        <div class="author-avatar"></div>
+                                        <span>健康科技</span>
+                                    </div>
+                                    <span>🔥 2.1k</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Industry Reports -->
+                <section>
+                    <div class="section-header">
+                        <h2 class="section-title">行业报告</h2>
+                    </div>
+                    <div class="article-grid">
+                        <article class="card">
+                            <div class="card-body">
+                                <h3 class="card-title"><a href="#">2024全球AI产业白皮书：算力与数据的博弈</a></h3>
+                                <p class="card-excerpt">详细分析全球AI算力分布格局，以及数据要素在AI模型训练中的核心地位。</p>
+                                <a href="#" class="btn btn-outline" style="font-size: 0.85rem; width: 100%;">下载PDF</a>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card-body">
+                                <h3 class="card-title"><a href="#">AIGC内容版权法律风险指南</a></h3>
+                                <p class="card-excerpt">随着AI生成内容的普及，创作者面临的法律边界与版权归属问题亟待明确。</p>
+                                <a href="#" class="btn btn-outline" style="font-size: 0.85rem; width: 100%;">阅读全文</a>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Sidebar -->
+            <aside class="sidebar">
+                <!-- Hot Topics -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">本周热议</h3>
+                    <div class="rank-list">
+                        <a href="#" class="rank-link">OpenAI 发布最新推理模型 o1</a>
+                        <a href="#" class="rank-link">GPT-5 训练计划曝光</a>
+                        <a href="#" class="rank-link">Midjourney v7 预览版体验</a>
+                        <a href="#" class="rank-link">中国生成式AI监管新规解读</a>
+                        <a href="#" class="rank-link">AI Agent：智能体的崛起</a>
+                    </div>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="sidebar-widget" style="background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); color: white;">
+                    <h3 class="widget-title" style="color: white;">订阅周刊</h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 15px; opacity: 0.9;">每周一推送，精选全球AI动态，助您不错过任何技术突破。</p>
+                    <input type="email" placeholder="您的邮箱地址" style="width: 100%; padding: 10px; border-radius: 4px; border: none; margin-bottom: 10px;">
+                    <button class="btn" style="width: 100%; background: white; color: var(--primary-color); border: none;">立即订阅</button>
+                </div>
+
+                <!-- Tools -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">热门工具</h3>
+                    <ul class="rank-list">
+                        <li><a href="#" class="rank-link">ChatGPT Plus 官方入口</a></li>
+                        <li><a href="#" class="rank-link">文心一言 4.0 体验</a></li>
+                        <li><a href="#" class="rank-link">Stable Diffusion WebUI</a></li>
+                        <li><a href="#" class="rank-link">Pika Labs 视频生成</a></li>
+                        <li><a href="#" class="rank-link">Notion AI 办公助手</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Feature Section -->
+        <section class="feature-section">
+            <div class="container">
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🚀</div>
+                        <h3>极速迭代</h3>
+                        <p>紧跟AI技术发展步伐，第一时间报道全球最新模型与算法突破。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💡</div>
+                        <h3>深度解析</h3>
+                        <p>拒绝浅层信息堆砌，提供专业、客观的技术原理解析与行业洞察。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🛠️</div>
+                        <h3>实用工具</h3>
+                        <p>汇集各类高效AI工具，帮助开发者和创作者提升生产力。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>aiaiwang AI</h2>
+                    <p style="font-size: 0.9rem; line-height: 1.6;">
+                        致力于成为最值得信赖的人工智能资讯与服务平台。我们关注技术、热爱创新，旨在为读者提供有深度的内容。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>网站栏目</h4>
+                    <ul>
+                        <li><a href="#">行业资讯</a></li>
+                        <li><a href="#">技术教程</a></li>
+                        <li><a href="#">AI工具</a></li>
+                        <li><a href="#">关于我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>热门专题</h4>
+                    <ul>
+                        <li><a href="#">大模型评测</a></li>
+                        <li><a href="#">AI绘画指南</a></li>
+                        <li><a href="#">代码助手</a></li>
+                        <li><a href="#">自动驾驶</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li>合作邮箱：contact@aiaiwang.com</li>
+                        <li>投稿通道：submit@aiaiwang.com</li>
+                        <li>地址：北京市朝阳区科技园区</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 aiaiwang. All Rights Reserved. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+                          </html>
